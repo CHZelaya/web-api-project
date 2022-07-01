@@ -1,0 +1,10 @@
+html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.title-wrapper {
+    display: inline flex;
+    align-items: center;
+}
