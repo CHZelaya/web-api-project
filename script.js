@@ -1,38 +1,41 @@
 //* Global Variables
 
+pokemonArray = [];
 const input = document.getElementById("input");
 const searchButton = document.getElementById("search-button")
 const info1 = document.getElementById("info1");
 const info2 = document.getElementById("info2");
 const info3 = document.getElementById("info3");
 const imgContainer = document.getElementById("img-container")
+const img = document.getElementById("pokemon-image")
+const text = document.getElementById("pokemon-text")
 
-function show(data) {
-    console.log('show():', data);
-    displaySprite(data);
-}
 
-async function refreshData(e) {
-    const pokemon = e.target.value;
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}/?offset=0&limit=150`
+
+
+
+function displayPokemon(imgUrl) {
+    console.log('inside displayPokemon function:', imgUrl)
+};
+
+
+
+async function callApi(e) {
+    const pokemon = e.target.value.toLowerCase();
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}/?offset=0&limit=898`
     try {
         const response = await fetch(url);
-        const data = await response.json();
-        show(data);
+        pokemonArray = await response.json();
+        let imgUrl = pokemonArray.sprites.other.home.front_default;
+        text.innerText = `Alright! Here's a picture of ${pokemon}, try searching for another!`
+        return document.getElementById("pokemon-image").src = imgUrl;
     } catch (e) {
-        console.log(e);
+        text.innerText = `Sorry! I'm a simple website, please make sure your spelling is accurate.`
+        return document.getElementById("pokemon-image").src = "sadPikachu.jpg";
     }
 }
 
-function displaySprite(data) {
-    data.forEach((data) => {
-        const img = document.createElement("img")
-        img.setAttribute('src', data.sprites.front_default)
-    });
-    item.appendChild(img);
-    imgContainer.appendChild(item);
-}
 
 
-input.addEventListener("change", refreshData);
-searchButton.addEventListener("input", refreshData);
+input.addEventListener("change", callApi);
+searchButton.addEventListener("input", callApi);

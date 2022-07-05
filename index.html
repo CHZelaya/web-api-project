@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -16,23 +17,31 @@
 <body>
 
     <!--* Title  -->
-    <div class="title-wrapper">
-        <h1 class="title f2 tc bb bw1"> <i class="fa-solid fa-computer "></i> Pokemon API Project</h1>
-    </div>
+    <header>
+        <div class="title-wrapper">
+            <h1 class="title f2 tc bb bw1"> <i class="fa-solid fa-computer "></i> Pokemon API Project</h1>
+        </div>
+    </header>
+    <main>
+        <div class="textwrapper tc pb1">
+            <p id="pokemon-text" class="f3 1h-copy">Hey there! I'm a simple Pokemon API Project<br> Type in a name of a
+                Pokemon and I'll
+                generate
+                some artwork for you</p>
+        </div>
+        <!--* Search bar -->
+        <div class="search-wrapper flex justify-center pb4 ">
+            <input id="input" placeholder="Search..." class="form-control" type="text" class="searchbar">
+            <button id="search-button" type="submit" class="search-button">Submit</button>
+        </div>
 
-    <!--* Search bar -->
-    <div class="search-wrapper flex justify-center ">
-        <input id="input" placeholder="Search..." class="form-control" type="text" class="searchbar">
-        <button id="search-button" type="submit" class="search-button">Submit</button>
-    </div>
-
-    <!--* Pokemon Information Display -->
-    <div class="pokemon-wrapper flex-column">
-        <div class="img-container" id="img-container"> </div>
-        <p id="info1">Info Panel 1</p>
-        <p id="info2">Info Panel 2</p>
-        <p id="info3">Info Panel 3</p>
-    </div>
+        <!--* Pokemon Information Display -->
+        <div class="pokemon-wrapper tc">
+            <div class="img-wrapper" id="img-wrapper">
+                <img src="pokeball.png" alt="pokeball" id="pokemon-image">
+            </div>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
