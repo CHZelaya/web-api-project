@@ -3,9 +3,6 @@
 pokemonArray = [];
 const input = document.getElementById("input");
 const searchButton = document.getElementById("search-button")
-const info1 = document.getElementById("info1");
-const info2 = document.getElementById("info2");
-const info3 = document.getElementById("info3");
 const imgContainer = document.getElementById("img-container")
 const img = document.getElementById("pokemon-image")
 const text = document.getElementById("pokemon-text")
